@@ -13,7 +13,7 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         $data = $request->validated();
-        
+
         if(!Auth::attempt($data)){
             return response([
                 'message' => 'email or password are wrong'

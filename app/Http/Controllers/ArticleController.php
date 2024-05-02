@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Auth;
 class ArticleController extends Controller
 {
     public function index()
-    {
-        $articles = Article::with('category', 'lastEditor')->get();
-        return response()->json(['articles' => $articles], 200);
-    }
+{
+    $articles = Article::paginate(10); // Adjust the number to your preference
+    return response()->json(['articles' => $articles], 200);
+}
 
     public function store(Request $request)
     {

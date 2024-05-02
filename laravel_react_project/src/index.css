@@ -260,3 +260,7 @@ table > tbody > tr > td {
     text-decoration: none; /* Remove underline on hover */
 }
 
+.pagination .active {
+    background-color: black;
+    color: white; /* Optional: To ensure text is visible */
+  }

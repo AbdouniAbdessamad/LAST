@@ -15,7 +15,7 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        $suppliers = Supplier::get();
+        $suppliers = Supplier::paginate(10);
 
         return SupplierResource::collection($suppliers);
     }
@@ -28,24 +28,22 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        // Validation rules for request data
+        $validatedData = $request->validate([
             'name' => 'required|string|min:3',
             'city' => 'nullable|string|max:255',
             'country' => 'nullable|string|max:255',
             'address' => 'nullable|string|max:255',
-            'phone' => 'numeric|digits_between:8,14',
+            'phone' => 'nullable|string|max:255',
         ]);
 
-        $supplier = new Supplier;
-        $supplier->name = $request->name;
-        $supplier->city = $request->city;
-        $supplier->country = $request->country;
-        $supplier->address = $request->address;
-        $supplier->phone = $request->phone;
-        $supplier->save();
+        // Create a new Supplier instance with the validated data
+        $supplier = Supplier::create($validatedData);
 
-        return response()->json(['message' => 'Supplier created successfully'], 201);
+        // Return a JSON response indicating successful creation
+        return response()->json(['supplier' => $supplier], 201);
     }
+
 
     /**
      * Update the specified resource in storage.

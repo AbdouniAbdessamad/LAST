@@ -60,6 +60,7 @@ export default function DefaultLayout(){
                 <span className="px-2 mx-6">
                   <strong>{user.name}</strong>
                 </span>
+                &nbsp;&nbsp;
                 <a href="#" onClick={onLogout} className="btn-logout"> Logout</a>
             </div>
             </header>

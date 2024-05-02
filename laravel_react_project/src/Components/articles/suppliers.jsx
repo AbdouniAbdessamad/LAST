@@ -6,19 +6,22 @@ export default function Supplier() {
   const [suppliers, setSuppliers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     getSuppliers();
-  }, []);
+  }, [currentPage]);
 
   const getSuppliers = () => {
     setLoading(true);
     axiosClient
-      .get('/suppliers')
+      .get(`/suppliers?page=${currentPage}`)
       .then(({ data }) => {
-        if(data?.data){
-            setSuppliers(data.data);
-            setError(null);
+        if (data?.data) {
+          setSuppliers(data.data);
+          setTotalPages(data.meta.last_page);
+          setError(null);
         }
       })
       .catch(error => {
@@ -39,12 +42,16 @@ export default function Supplier() {
     });
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div className="card animated fadeInDown">
-        <div style={{ display: 'flex', justifyContent: "space-between", alignItems: "center" }}>
-                <h1>Fournisseurs</h1>
-                <Link className="btn-add" to="/supplier/new">Add new</Link>
-            </div>
+      <div style={{ display: 'flex', justifyContent: "space-between", alignItems: "center" }}>
+        <h1>Fournisseurs</h1>
+        <Link className="btn-add" to="/supplier/new">Add new</Link>
+      </div>
       <table>
         <thead>
           <tr>
@@ -89,6 +96,14 @@ export default function Supplier() {
           )}
         </tbody>
       </table>
+      &nbsp;
+      <div style={{display:"flex",justifyContent:'center'}} className="pagination">
+        {currentPage > 1 && <button onClick={() => handlePageChange(currentPage - 1)}>Previous</button>}
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+          <button key={page} onClick={() => handlePageChange(page)} className={page === currentPage ? "active" : ""}>{page}</button>
+        ))}
+        {currentPage < totalPages && <button onClick={() => handlePageChange(currentPage + 1)}>Next</button>}
+      </div>
     </div>
   );
 }

@@ -29,15 +29,7 @@ export default function QuantiteEx() {
       });
   };
 
-  const onDeleteClick = quantity => {
-    if (!window.confirm("Are you sure you want to delete this quantity?")) {
-      return
-    }
-    axiosClient.delete(`/low/${quantity.id}`)
-      .then(() => {
-        getQuantities()
-      })
-  }
+
 
   return (
     <div className="card animated fadeInDown">
