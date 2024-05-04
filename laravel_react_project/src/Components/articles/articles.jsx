@@ -78,8 +78,8 @@ export default function Articles() {
                   <td>{a.name}</td>
                   <td>{a.quantity}</td>
                   <td>{a.status}</td>
-                  <td>{a.category}</td>
-                  <td>{a.last_editor}</td>
+                  <td>{a.category_id}</td>
+                  <td>{a.last_editor_id}</td>
                 </tr>
               ))}
             </tbody>

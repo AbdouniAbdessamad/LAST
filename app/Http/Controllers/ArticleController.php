@@ -15,18 +15,18 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData=$request->validate([
             'date' => 'required|date',
             'bon_commande' => 'required|max:225|min:1',
             'supplier_id' => 'required|max:225',
             'ref' => 'required|max:225|min:1',
             'name' => 'required|max:225|min:1',
             'quantity' => 'required|numeric|min:0',
-            'category_id' => '',
-            'status' => '',
+            'category_id' => 'required|numeric',
+            'status' => 'string',
         ]);
 
-        $article = new Article($request->all());
+        $article = new Article($validatedData);
         $article->last_editor_id = Auth::id();
         $article->save();
 
@@ -40,18 +40,19 @@ class ArticleController extends Controller
 
     public function update(Request $request, Article $article)
     {
-        $request->validate([
+        $validatedData=$request->validate([
             'date' => 'required|date',
             'bon_commande' => 'required|max:225|min:1',
             'supplier_id' => 'required|max:225',
             'ref' => 'required|max:225|min:1',
             'name' => 'required|max:225|min:1',
             'quantity' => 'required|numeric|min:0',
-            'category_id' => '',
-            'status' => '',
+            'category_id' => 'required',
+            'status' => 'string',
+            'last_editor_id' => 'numeric',
         ]);
 
-        $article->update($request->all());
+        $article->update($validatedData);
 
         return response()->json(['article' => $article], 200);
     }

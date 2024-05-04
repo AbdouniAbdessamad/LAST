@@ -38,7 +38,7 @@ class SupplierController extends Controller
         ]);
 
         // Create a new Supplier instance with the validated data
-        $supplier = Supplier::create($validatedData);
+        $supplier = new Supplier($validatedData);
 
         // Return a JSON response indicating successful creation
         return response()->json(['supplier' => $supplier], 201);

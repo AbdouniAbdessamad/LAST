@@ -34,10 +34,10 @@ class ArticleFactory extends Factory
             'quantity' => $this->faker->randomNumber(),
             'status' => $this->faker->randomElement(['entree', 'sortie']),
 
-            'category' => function () {
+            'category_id' => function () {
                 return optional(Category::inRandomOrder()->first())->id;
             },
-            'last_editor' => function () {
+            'last_editor_id' => function () {
                 return User::inRandomOrder()->first()->id;
             },
             'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),

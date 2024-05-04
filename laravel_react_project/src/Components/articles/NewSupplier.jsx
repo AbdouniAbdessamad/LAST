@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axiosClient from "../../axiosClient";
-
+import { useNavigate } from "react-router-dom";
 export default function Supplier({ onAdd }) {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
@@ -9,7 +9,7 @@ export default function Supplier({ onAdd }) {
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
-
+  const navigate = useNavigate();
   const onSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -17,9 +17,8 @@ export default function Supplier({ onAdd }) {
     axiosClient
       .post("/suppliers", supplier)
       .then(() => {
-        setLoading(false);
-        onAdd();
-        setErrors(null); // Clear errors on successful submission
+        setErrors(null); // Clear errors on successful submissions
+        navigate("/suppliers");
       })
       .catch((err) => {
         setLoading(false);
