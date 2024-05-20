@@ -15,13 +15,12 @@ class Article extends Model
     protected $fillable = [
         'date',
         'bon_commande',
-        'supplier',
+        'supplier_id',
         'ref',
         'name',
         'quantity',
         'category_id',
         'status',
-        'last_editor_id'
     ];
 
     public function category(): BelongsTo
@@ -29,10 +28,7 @@ class Article extends Model
         return $this->belongsTo(Category::class,'category_id','id');
     }
 
-    public function lastEditor(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'last_editor_id', 'id');
-    }
+
 
     public function supplier(): BelongsTo
     {

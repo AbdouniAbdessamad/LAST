@@ -26,7 +26,6 @@
                 $table->integer("quantity");
                 $table->string("status")->nullable();
                 $table->foreignId("category_id")->nullable()->constrained('categories');
-                $table->foreignId("last_editor_id")->nullable()->constrained('users'); // Specify the referenced table
                 $table->timestamps();
             });
 

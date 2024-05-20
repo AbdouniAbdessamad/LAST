@@ -37,9 +37,6 @@ class ArticleFactory extends Factory
             'category_id' => function () {
                 return optional(Category::inRandomOrder()->first())->id;
             },
-            'last_editor_id' => function () {
-                return User::inRandomOrder()->first()->id;
-            },
             'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'updated_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];

@@ -11,6 +11,7 @@ export default function Articles() {
 
     useEffect(() => {
       getArticles();
+
     }, [currentPage]);
 
     const getArticles = () => {
@@ -58,13 +59,13 @@ export default function Articles() {
                 <th>ID</th>
                 <th>Date</th>
                 <th>BC/BD</th>
-                <th>Supplier</th>
-                <th>Reference</th>
-                <th>Designation</th>
-                <th>Quantity</th>
+                <th>Fournisseur/Bénéficiaire</th>
+                <th>Référence</th>
+                <th>Désignation</th>
+                <th>Quantité</th>
                 <th>Status</th>
-                <th>Category</th>
-                <th>Last Editor</th>
+                <th>Categorie</th>
+
               </tr>
             </thead>
             <tbody>
@@ -79,7 +80,6 @@ export default function Articles() {
                   <td>{a.quantity}</td>
                   <td>{a.status}</td>
                   <td>{a.category_id}</td>
-                  <td>{a.last_editor_id}</td>
                 </tr>
               ))}
             </tbody>

@@ -27,7 +27,6 @@ class SupplierFactory extends Factory
             'country' => $this->faker->country(),
             'address' => $this->faker->optional()->address(),
             'phone' => $this->faker->optional()->phoneNumber(),
-            'type' => $this->faker->randomElement(['Manufacturer', 'Wholesaler', 'Distributor']),
             'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'updated_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];

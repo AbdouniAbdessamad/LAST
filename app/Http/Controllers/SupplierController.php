@@ -31,15 +31,15 @@ class SupplierController extends Controller
         // Validation rules for request data
         $validatedData = $request->validate([
             'name' => 'required|string|min:3',
-            'city' => 'nullable|string|max:255',
-            'country' => 'nullable|string|max:255',
-            'address' => 'nullable|string|max:255',
-            'phone' => 'nullable|string|max:255',
+            'city' => 'required|string|max:255',
+            'country' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
         ]);
 
         // Create a new Supplier instance with the validated data
         $supplier = new Supplier($validatedData);
-
+        $supplier->save();
         // Return a JSON response indicating successful creation
         return response()->json(['supplier' => $supplier], 201);
     }
@@ -69,7 +69,7 @@ class SupplierController extends Controller
             'address' => $request->address,
             'phone' => $request->phone,
         ]);
-
+        $supplier->save();
         return response()->json(['message' => 'Supplier updated successfully'], 200);
     }
 

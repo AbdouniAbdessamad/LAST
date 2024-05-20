@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axiosClient from "../../axiosClient";
 import { useNavigate } from "react-router-dom";
-export default function Supplier({ onAdd }) {
+
+export default function Supplier() {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
@@ -10,21 +11,40 @@ export default function Supplier({ onAdd }) {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
   const navigate = useNavigate();
-  const onSubmit = (e) => {
-    e.preventDefault();
+
+  const onSubmit = async (ev) => {
+    ev.preventDefault();
     setLoading(true);
-    const supplier = { name, city, address, country, phone };
+    setErrors(null); // Reset errors before making the request
+    console.log("Submitting form with values:", { name, city, address, country, phone });
+
     axiosClient
-      .post("/suppliers", supplier)
+      .post("/suppliers", {
+        name,
+        city,
+        address,
+        country,
+        phone,
+      })
       .then(() => {
-        setErrors(null); // Clear errors on successful submissions
+        console.log("Form submitted successfully");
+        setLoading(false);
         navigate("/suppliers");
       })
       .catch((err) => {
+        console.error("Error submitting form", err);
         setLoading(false);
         const response = err.response;
-        if (response && response.status === 422) {
-          setErrors(response.data.errors);
+        if (response) {
+          console.log("Error response received:", response);
+          if (response.status === 422) {
+            setErrors(response.data.errors);
+            console.log("Validation errors:", response.data.errors);
+          } else {
+            setErrors({ general: "An error occurred. Please try again later." });
+          }
+        } else {
+          setErrors({ general: "An error occurred. Please try again later." });
         }
       });
   };
@@ -62,7 +82,9 @@ export default function Supplier({ onAdd }) {
             <label>Phone:</label>
             <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
           </div>
-          <button className="btn" type="submit"> Save </button>
+          <button className="btn" type="submit" disabled={loading}>
+            Save
+          </button>
         </form>
       </div>
     </div>

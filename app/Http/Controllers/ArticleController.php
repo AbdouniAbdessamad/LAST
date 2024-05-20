@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Auth;
 class ArticleController extends Controller
 {
     public function index()
-{
-    $articles = Article::paginate(10); // Adjust the number to your preference
-    return response()->json(['articles' => $articles], 200);
-}
+    {
+        $articles = Article::orderBy('date', 'desc')->paginate(20);
+        return response()->json(['articles' => $articles], 200);
+    }
 
     public function store(Request $request)
     {
@@ -27,7 +27,6 @@ class ArticleController extends Controller
         ]);
 
         $article = new Article($validatedData);
-        $article->last_editor_id = Auth::id();
         $article->save();
 
         return response()->json(['article' => $article], 201);

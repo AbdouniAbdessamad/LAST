@@ -70,12 +70,7 @@ export default function Category() {
                       Edit
                     </Link>
                     &nbsp;
-                    <button
-                      className="btn-delete"
-                      onClick={() => onDeleteClick(u.id)}
-                    >
-                      Delete
-                    </button>
+
                   </td>
                 </tr>
               ))

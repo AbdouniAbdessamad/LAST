@@ -19,10 +19,26 @@ export default function NewArticle() {
   const [quantity, setQuantity] = useState("");
   const [status, setStatus] = useState("");
   const [categoryId, setCategoryId] = useState("");
-
+  const [users,setUsers]=useState([]);
+  const getUsers = () => {
+      setLoading(true);
+      axiosClient
+        .get("/users")
+        .then(({ data }) => {
+          setLoading(false);
+          console.log(data.data);
+          setUsers(data.data);
+          setError(""); // Reset error state if fetching is successful
+        })
+        .catch(error => {
+          setLoading(false);
+          setError(error); // Set error message
+        });
+    };
   useEffect(() => {
     getCategory();
     getSuppliers();
+    getUsers();
   }, []);
 
   const getCategory = () => {
@@ -128,11 +144,23 @@ export default function NewArticle() {
               value={supplierId}
               onChange={(e) => setSupplierId(e.target.value)}
             >
-              <option value=""></option>
+
+                <option value=""disabled></option>
+              <option value="" disabled>Fournisseurs</option>
               {suppliers.map((supplier) => (
-                <option key={supplier.id} value={supplier.id}>
+                <>
+                    <option key={supplier.name} value={supplier.name}>
                   {supplier.name}
                 </option>
+                </>
+              ))}
+              <option value="" disabled>Bénéficiaires</option>
+              {users.map((user) => (
+                <>
+                    <option key={user.name} value={user.name}>
+                  {user.name}
+                </option>
+                </>
               ))}
             </select>
           </div>
@@ -187,6 +215,7 @@ export default function NewArticle() {
               value={categoryId}
               onChange={(e) => setCategoryId(e.target.value)}
             >
+              <option value="" disabled></option>
               {category.map((x) => (
                 <option key={x.id} value={x.id}>
                   {x.name}
