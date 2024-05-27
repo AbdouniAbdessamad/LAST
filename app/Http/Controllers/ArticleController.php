@@ -48,7 +48,6 @@ class ArticleController extends Controller
             'quantity' => 'required|numeric|min:0',
             'category_id' => 'required',
             'status' => 'string',
-            'last_editor_id' => 'numeric',
         ]);
 
         $article->update($validatedData);
