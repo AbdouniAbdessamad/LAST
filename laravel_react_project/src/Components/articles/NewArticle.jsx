@@ -105,7 +105,7 @@ export default function NewArticle() {
 
   return (
     <div>
-      <h1>New Article</h1>
+      <h1>Nouveau Article</h1>
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
       {errors && (
@@ -127,7 +127,7 @@ export default function NewArticle() {
             />
           </div>
           <div className="form-group">
-            <label>Bon de commande:</label>
+            <label>BC/BD:</label>
             <input
             name="bon_commande"
               type="text"
@@ -136,7 +136,7 @@ export default function NewArticle() {
             />
           </div>
           <div className="form-group">
-            <label>Fournisseur:</label>
+            <label>Fournisseur/Bénéficiaire:</label>
             <br />
             <select
                 name="supplier_id"
@@ -146,7 +146,7 @@ export default function NewArticle() {
             >
 
                 <option value=""disabled></option>
-              <option value="" disabled>Fournisseurs</option>
+              <option value="" disabled style={{fontSize:"16px",color:"darkblue"}}>Fournisseurs</option>
               {suppliers.map((supplier) => (
                 <>
                     <option key={supplier.name} value={supplier.name}>
@@ -154,7 +154,7 @@ export default function NewArticle() {
                 </option>
                 </>
               ))}
-              <option value="" disabled>Bénéficiaires</option>
+              <option value="" disabled style={{fontSize:"16px",color:"darkblue"}}>Bénéficiaires</option>
               {users.map((user) => (
                 <>
                     <option key={user.name} value={user.name}>
@@ -164,8 +164,9 @@ export default function NewArticle() {
               ))}
             </select>
           </div>
+          <br />
           <div className="form-group">
-            <label>Reference:</label>
+            <label>Référence:</label>
             <input
             name="ref"
               type="text"
@@ -174,7 +175,7 @@ export default function NewArticle() {
             />
           </div>
           <div className="form-group">
-            <label>Designation:</label>
+            <label>Désignation:</label>
             <input
             name="name"
               type="text"
@@ -206,6 +207,7 @@ export default function NewArticle() {
               <option value="sortie">sortie</option>
             </select>
           </div>
+          <br />
           <div className="form-group">
             <label>Categorie:</label>
             <br />
@@ -223,8 +225,9 @@ export default function NewArticle() {
               ))}
             </select>
           </div>
+          <br />
           <button className="btn" type="submit">
-            Save
+            Sauvegarder
           </button>
         </form>
       </div>

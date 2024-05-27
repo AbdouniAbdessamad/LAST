@@ -70,7 +70,7 @@ export default function Users() {
           >
             <h1>Users</h1>
             <Link className="btn-add" to="/users/new">
-              Add new
+               Nouveau Utilisateur
             </Link>
           </div>
           {error && <div className="alert alert-danger">{error}</div>} {/* Display error message */}
@@ -79,7 +79,7 @@ export default function Users() {
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Name</th>
+                  <th>Nom</th>
                   <th>Email</th>
                   <th>Actions</th>
                 </tr>
@@ -88,7 +88,7 @@ export default function Users() {
                 <tbody>
                   <tr>
                     <td colSpan="5" className="text-center">
-                      Loading...
+                      Chargement...
                     </td>
                   </tr>
                 </tbody>
@@ -102,14 +102,14 @@ export default function Users() {
                       <td>{u.email}</td>
                       <td>
                         <Link className="btn-edit" to={"/users/" + u.id}>
-                          Edit
+                          Modifier
                         </Link>
                         &nbsp;
                         <button
                           className="btn-delete"
                           onClick={() => onDeleteClick(u)}
                         >
-                          Delete
+                          Supprimer
                         </button>
                       </td>
                     </tr>
@@ -120,7 +120,7 @@ export default function Users() {
           </div>
         </div>
       ) : (
-        <h1 style={{color: "red", display: "flex",justifyContent: "center",alignItems: "center" }}>Impossible d'acceder cette page en tant que simple utilisateur</h1>
+        <h1 style={{color: "red", display: "flex",justifyContent: "center",alignItems: "center" }}>Impossible d'accéder cette page en tant que simple utilisateur</h1>
       )}
     </div>
   );

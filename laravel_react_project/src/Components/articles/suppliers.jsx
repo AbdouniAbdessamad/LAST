@@ -50,17 +50,18 @@ export default function Supplier() {
     <div className="card animated fadeInDown">
       <div style={{ display: 'flex', justifyContent: "space-between", alignItems: "center" }}>
         <h1>Fournisseurs</h1>
-        <Link className="btn-add" to="/supplier/new">Add new</Link>
+        <Link className="btn-add" to="/supplier/new">Nouveau Fournisseur</Link>
       </div>
+      <br />
       <table>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>City</th>
-            <th>Country</th>
-            <th>Address</th>
-            <th>Phone</th>
+            <th>Nom</th>
+            <th>Ville</th>
+            <th>Pays</th>
+            <th>Adresse</th>
+            <th>Téléphone</th>
           </tr>
         </thead>
         <tbody>

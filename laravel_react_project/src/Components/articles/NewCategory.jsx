@@ -28,7 +28,7 @@ export default function NewCategory() {
 
     return (
         <div className="card animated fadeInDown">
-            <h1>New Category</h1>
+            <h1>Nouvelle Categorie :</h1>
             {loading && <div className="text-center">Loading...</div>}
             {errors &&
                 <div className="alert">
@@ -38,8 +38,10 @@ export default function NewCategory() {
                 </div>
             }
             <form onSubmit={onSubmit}>
-                <input value={category.name} onChange={ev => setCategory({ ...category, name: ev.target.value })} placeholder="Category Name" />
-                <button className="btn">Save</button>
+                <br />
+                <input value={category.name} onChange={ev => setCategory({ ...category, name: ev.target.value })} placeholder="Nom categorie" />
+                <br />
+                <button className="btn">Sauvegarder</button>
             </form>
         </div>
     );

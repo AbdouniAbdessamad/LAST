@@ -13,6 +13,8 @@ import QuantiteEx from './Components/articles/QuantiteEx.jsx';
 import NewSupplier from './Components/articles/NewSupplier.jsx'
 import NewCategory from './Components/articles/NewCategory.jsx';
 import EditCategory from './Components/articles/EditCategory.jsx';
+import EditProfile from './Components/articles/EditProfile.jsx';
+import UpdateP from './Components/articles/UpdateP.jsx';
 const router = createBrowserRouter([
     {
       path: "/",
@@ -61,6 +63,14 @@ const router = createBrowserRouter([
         {
             path:"/category/:id",
             element:<EditCategory/>
+        },
+        {
+            path:"/profile",
+            element:<EditProfile/>
+        },
+        {
+            path:"/editP",
+            element:<UpdateP/>
         }
       ],
     },

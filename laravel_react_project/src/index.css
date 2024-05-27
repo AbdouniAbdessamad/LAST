@@ -246,21 +246,45 @@ table > tbody > tr > td {
     font-style: oblique;
 }
 .NavBarElements {
-    color: black; /* Set text color for links */
-    font-weight: bold; /* Set font weight */
-    text-decoration: none; /* Remove underline */
-    padding: 10px 15px; /* Add padding around the text */
-    border-radius: 10px; /* Add rounded corners */
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 10px;
 }
 
 .NavBarElements:hover {
-    background-color: black; /* Change background color on hover */
-    color: white; /* Change text color on hover */
-    padding: 12px 17px; /* Adjust padding on hover */
-    text-decoration: none; /* Remove underline on hover */
+    background-color: black;
+    color: white;
+    padding: 12px 17px;
+    text-decoration: none;
 }
 
 .pagination .active {
     background-color: black;
-    color: white; /* Optional: To ensure text is visible */
+    color: white;
   }
+.hhh{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hhhh{
+    background-color: #5b08a7;
+    color: white;
+}
+.navlink{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+.navlink:hover {
+    background-color: black;
+    color: white;
+}
+
+.NAMENAME{
+    font-size: large;
+}

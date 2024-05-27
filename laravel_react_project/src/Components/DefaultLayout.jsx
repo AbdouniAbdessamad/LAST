@@ -38,27 +38,27 @@ export default function DefaultLayout(){
   user && user.id === 1 // Check if user object exists and its ID is 1
     ? // If the condition is true, render the following JSX
       <div className="NavBarElements">
-        <Link to="/users">Users</Link>
+        <Link className="navlink" to="/users">Utilisateurs</Link>
       </div>
     : // If the condition is false, render nothing
       null
 }
 
             <div className="NavBarElements">
-              <Link to='/articles'>Articles</Link>
+              <Link className="navlink" to='/articles'>Articles</Link>
             </div>
               <div className="NavBarElements">
-               <Link to='/suppliers'>Suppliers</Link>
+               <Link className="navlink" to='/suppliers'>Fournisseurs</Link>
               </div>
               <div className="NavBarElements">
-                <Link to='/category'>Categories</Link>
+                <Link className="navlink" to='/category'>Categories</Link>
               </div>
               <div className="NavBarElements">
-                <Link to='/QuantiteEx'>Quantité existante</Link>
+                <Link className="navlink" to='/QuantiteEx'>Quantité existante</Link>
               </div>
               <div>
                 <span className="px-2 mx-6">
-                  <strong>{user.name}</strong>
+                  <strong><Link to='/profile'>{user.name}</Link></strong>
                 </span>
                 &nbsp;&nbsp;
                 <a href="#" onClick={onLogout} className="btn-logout"> Logout</a>

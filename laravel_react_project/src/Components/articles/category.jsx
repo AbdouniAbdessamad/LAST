@@ -25,31 +25,21 @@ export default function Category() {
       });
   };
 
-  const onDeleteClick = (categoryId) => {
-    if (!window.confirm("Are you sure you want to delete this category?")) {
-      return;
-    }
-    axiosClient.delete(`/categories/${categoryId}`)
-      .then(() => {
-        getCategory();
-      })
-      .catch(() => {
-        console.error("Error deleting category");
-      });
-  };
+
 
   return (
     <div className="card animated fadeInDown">
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <h1>Categories</h1>
-                <Link className="btn-add" to="/category/new">Add new</Link>
+                <Link className="btn-add" to="/category/new">Nouvelle Categorie</Link>
             </div>
+            <br/>
       <table>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Action</th>
+            <th>Nom</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -67,7 +57,7 @@ export default function Category() {
                   <td>{u.name}</td>
                   <td>
                     <Link className="btn-edit" to={"/category/" + u.id}>
-                      Edit
+                      Modifier
                     </Link>
                     &nbsp;
 

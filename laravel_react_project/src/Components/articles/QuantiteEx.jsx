@@ -36,10 +36,9 @@ export default function QuantiteEx() {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Reference</th>
-            <th>Name</th>
-            <th>Quantity</th>
+            <th>Référence</th>
+            <th>Nom</th>
+            <th>Quantité</th>
           </tr>
         </thead>
         <tbody>
@@ -52,10 +51,9 @@ export default function QuantiteEx() {
           ) : ( quantities && quantities.length > 0 ? (
             quantities.map((u) => (
               <tr key={u.id}>
-                <td>{u.id}</td>
-                <td>{u.ref}</td>
-                <td>{u.name}</td>
-                <td>{u.quantity}</td>
+                <td><span className="NAMENAME">{u.ref}</span></td>
+                <td > <span className="NAMENAME">{u.name}</span></td>
+                <td><span className="NAMENAME">{u.quantity}</span></td>
               </tr>
             ))) : (
                 <tr>

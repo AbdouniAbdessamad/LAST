@@ -63,27 +63,27 @@ export default function Supplier() {
       <div className="card animated fadeInDown">
         <form onSubmit={onSubmit}>
           <div className="form-group">
-            <label>Name:</label>
+            <label>Nom:</label>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
           </div>
           <div className="form-group">
-            <label>City:</label>
+            <label>Ville:</label>
             <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
           </div>
           <div className="form-group">
-            <label>Address:</label>
+            <label>Adresse:</label>
             <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
           </div>
           <div className="form-group">
-            <label>Country:</label>
+            <label>Pays:</label>
             <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} />
           </div>
           <div className="form-group">
-            <label>Phone:</label>
+            <label>Téléphone:</label>
             <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
           </div>
           <button className="btn" type="submit" disabled={loading}>
-            Save
+            Sauvegarder
           </button>
         </form>
       </div>
