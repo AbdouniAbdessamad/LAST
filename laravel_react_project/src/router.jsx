@@ -15,6 +15,7 @@ import NewCategory from './Components/articles/NewCategory.jsx';
 import EditCategory from './Components/articles/EditCategory.jsx';
 import EditProfile from './Components/articles/EditProfile.jsx';
 import UpdateP from './Components/articles/UpdateP.jsx';
+import Inventaire from './Components/articles/Inventaire.jsx';
 const router = createBrowserRouter([
     {
       path: "/",
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
         {
             path:"/editP",
             element:<UpdateP/>
+        },
+        {
+            path:"/Inventaire",
+            element:<Inventaire/>
         }
       ],
     },

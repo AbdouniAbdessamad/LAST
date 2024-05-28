@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Inventaire;
 use App\Http\Controllers\LowQuantityController;
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,4 @@ Route::apiResource('/users',UserController::class);
     Route::apiResource('/suppliers',SupplierController::class);
     Route::apiResource('/categories',CategoryController::class);
     Route::apiResource('/low',LowQuantityController::class);
+    Route::apiResource('/inv',Inventaire::class);
