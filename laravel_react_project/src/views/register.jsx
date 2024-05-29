@@ -34,15 +34,15 @@ export default function register(){
         <div className="login-signup-form animated fadeinDown">
             <div className="form">
                 <h1 className="title">
-                    Create A New Account
+                Créer un nouveau compte
                 </h1>
                 <form onSubmit={Submit}>
-                    <input ref={nameRef} type="name" placeholder="Name" />
+                    <input ref={nameRef} type="name" placeholder="Nom" />
                     <input ref={emailRef} type="email" placeholder="Email" />
-                    <input ref={passwordRef} type="password" placeholder="Password" />
-                    <button className="btn btn-block">Register</button>
+                    <input ref={passwordRef} type="password" placeholder="Mot de passe" />
+                    <button className="btn btn-block">S'inscrire</button>
                     <p className="message">
-                        Already Have An Account? <Link to= '/login'>Login</Link>
+                        Avez-vous un compte? <Link to= '/login'>Connectez-vous</Link>
                     </p>
                 </form>
             </div>

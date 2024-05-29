@@ -77,7 +77,7 @@ export default function DefaultLayout() {
                         &nbsp;&nbsp;
                         <a href="#" onClick={onLogout} className="btn-logout">
                             {" "}
-                            Logout
+                            Se déconnecter
                         </a>
                     </div>
                 </header>

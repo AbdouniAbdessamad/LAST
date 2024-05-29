@@ -26,7 +26,7 @@ export default function EditProfile() {
             <br />
             <h1>Email: {user.email}</h1>
             <br />
-            <Link style={{display: 'flex', justifyContent: 'center', alignItems: 'center',textDecoration:"none",fontSize:"20px",color:"black",backgroundColor:"#5b08a7",borderRadius:"5px",height:"30px"}} to="/editP">Edit profile</Link>
+            <Link style={{display: 'flex', justifyContent: 'center', alignItems: 'center',textDecoration:"none",fontSize:"20px",color:"white",backgroundColor:"#5b08a7",borderRadius:"5px",height:"30px"}} to="/editP">Modifier profile</Link>
             </fieldset>
 
         </div>
