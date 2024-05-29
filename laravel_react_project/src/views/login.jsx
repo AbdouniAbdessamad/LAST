@@ -32,14 +32,14 @@ export default function login(){
         <div className="login-signup-form animated fadeinDown">
             <div className="form">
                 <h1 className="title">
-                    Login To Your Account
+                    Connectez-vous à votre compte
                 </h1>
                 <form onSubmit={Submit}>
                 <input ref={emailRef} type="email" placeholder="Email" />
-                    <input ref={passwordRef} type="password" placeholder="Password" />
-                    <button className="btn btn-block">Login</button>
+                    <input ref={passwordRef} type="password" placeholder="Mot de passe" />
+                    <button className="btn btn-block">Se connecter</button>
                     <p className="message">
-                        Not Registered? <Link to= '/register'>Create a new account</Link>
+                        Non inscrit? <Link to= '/register'>Créer un nouveau compte</Link>
                     </p>
                 </form>
             </div>
