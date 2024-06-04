@@ -27,7 +27,7 @@ export default function DefaultLayout() {
     return (
         <div id="defaultLayout">
             <div className="content">
-                <header>
+                <header className="navbar-container">
                     <div className="title">ABDOUNISM</div>
                     {user && user.id === 1 ? ( // Check if user object exists and its ID is 1
                         // If the condition is true, render the following JSX

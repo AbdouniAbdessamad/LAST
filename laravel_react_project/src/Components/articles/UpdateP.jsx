@@ -26,7 +26,7 @@ export default function UpdateP() {
         if (user.id) {
             axiosClient.put(`/users/${user.id}`, user)
                 .then(() => {
-                    navigate('/users');
+                    navigate('/');
                 })
                 .catch(err => {
                     const response = err.response;
