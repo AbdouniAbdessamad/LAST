@@ -32,7 +32,9 @@ export default function Inventaire() {
         setLoading(false);
       });
   };
-
+const handlePrint = () => {
+  window.print();
+};
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -73,7 +75,7 @@ export default function Inventaire() {
 
   return (
     <>
-      <h3
+      <h3 className="hhhhh"
         style={{
           display: "flex",
           justifyContent: "center",
@@ -106,11 +108,14 @@ export default function Inventaire() {
             id="date2"
           />
           <span style={{ display: "block" }}>
+            <div className="VaButton">
             <input
-              style={{ width: "100px", color: "white", backgroundColor: "#5b08a7" }}
+              style={{ marginLeft:"20px", width: "100px", color: "white", backgroundColor: "#5b08a7" }}
               type="submit"
               value={"Valider"}
             />
+            </div>
+
           </span>
         </form>
       </div>
@@ -156,7 +161,15 @@ export default function Inventaire() {
             )}
           </tbody>
         </table>
+
       )}
+      <div style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}>
+        <button className="hhhhh" style={{marginTop:"20px", width: "100px", height: "40px", color: "white", backgroundColor: "#5b08a7" }} onClick={handlePrint}>Imprimer</button>
+      </div>
     </>
   );
 }

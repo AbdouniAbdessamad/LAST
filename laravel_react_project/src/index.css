@@ -288,3 +288,14 @@ table > tbody > tr > td {
 .NAMENAME{
     font-size: large;
 }
+@media print {
+    .navbar-container{
+        display: none !important;
+    }
+    .VaButton{
+        display: none;
+    }
+    .hhhhh{
+        display: none !important;
+    }
+}
